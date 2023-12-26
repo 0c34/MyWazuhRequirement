@@ -1,0 +1,5 @@
+<decoder name="custom_mysql">
+   <prematch>^Query\t\w</prematch>
+   <regex>^(\w+)\t(\.*)$</regex>
+   <order>_action, command</order>
+</decoder>
