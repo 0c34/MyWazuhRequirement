@@ -1,0 +1,31 @@
+<group name="supicious-activity,auditd">
+    <rule id="310001" level="7">
+        <if_sid>80789</if_sid>
+        <field name="audit.key">susp_activity</field>
+        <description>Suspicius command detected $(audit.command)</description>
+    </rule>
+    <rule id="310002" level="7">
+        <if_sid>80789</if_sid>
+        <field name="audit.key">Data_Compressed</field>
+        <description>Adversaries may exfiltrate data using $(audit.command)</description>
+        <mitre>
+            <id>T1560</id>
+        </mitre>
+    </rule>
+    <rule id="310003" level="7">
+        <if_sid>80792</if_sid>
+        <field name="audit.key">recon</field>
+        <description>Adversaries may gather information about the victim's hosts using $(audit.command)</description>
+        <mitre>
+            <id>T1592</id>
+        </mitre>
+    </rule>
+    <rule id="310004" level="7">
+        <if_sid>80789</if_sid>
+        <field name="audit.key">group_modification|user_modification</field>
+        <description>Group or user modification using  $(audit.command)</description>
+        <mitre>
+            <id>T1548</id>
+        </mitre>
+    </rule>
+</group>
